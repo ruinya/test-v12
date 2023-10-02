@@ -31,4 +31,11 @@ export default function showInfo(content) {
 
   console.log(`Calories: min - ${minDishCalories}, max - ${maxDishCalories}`);
 
+  // step 5
+  const mostProfitableDish = _.minBy(data, ([dishName, , grams, , price]) => {
+    const costPerGram = Number(price) / Number(grams.trim().split(' ')[0]);
+    return costPerGram;
+  });
+
+  console.log(`Most profitable dish: ${mostProfitableDish[0]}`);
 }
